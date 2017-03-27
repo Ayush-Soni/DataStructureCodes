@@ -1,0 +1,49 @@
+
+
+------------------------FOR POSTFIX---------------------------
+
+typedef enum{lparen, rparen, minus, plus, divide, mul, eos, operand} precedence;
+
+precedence gettoken(char *c, int *n, char exp[])
+{
+ *c=exp[(*n)++];
+  switch(*c)
+     {
+
+     }
+}
+
+
+
+int eval(stack *s, char exp[])
+{
+    char symbol;
+    int n=0;
+    precedence token=gettoken(&symbol,&n,exp);
+    while(token!=eos)
+    {
+        if(token==operand)
+        {
+            push(s,symbol-'0');
+        }
+        
+        else
+        {
+            int op2=pop(s);
+            int op1=pop(s);
+            switch(token)
+            {
+                
+            }
+        }
+        token=gettoken(&symbol,&n,exp);
+    }
+    return pop(s);
+}
+
+
+
+---------------------FOR PREFIX-----------------------
+
+reverse the string before calling eval func.
+op1 is popped first, then op2.
